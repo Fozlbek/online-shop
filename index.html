@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Shop</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    #main {
+      margin-top: 50px;
+    }
+
+    img {
+      width: 150px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #24a0ed;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <h1>Online Shop</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png" alt="Shop Icon" />
+    <br><br>
+    <button id="buy">Buy</button>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    const buyBtn = document.getElementById("buy");
+
+    tg.expand(); // Расширяет Web App на весь экран
+
+    buyBtn.addEventListener("click", () => {
+      tg.sendData("buy_clicked"); // Отправка данных в бота
+      tg.close(); // Закрытие Web App (по желанию)
+    });
+  </script>
+</body>
+</html>
